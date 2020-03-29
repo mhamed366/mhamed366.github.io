@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<body>
+
+		<h2>Using the XMLHttpRequest Object</h2>
+
+		<div id="demo">
+			<button type="button" onclick="loadXMLDoc()">Change Content</button>
+		</div>
+
+		<script>
+			function loadXMLDoc() {
+				var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						document.getElementById("demo").innerHTML =
+							this.responseText;
+					}
+				};
+				xhttp.open("POST", "http://api-ptl-ad42da05-c93d6931.libcurl.so//api/v1/keys", true);
+				xhttp.send();
+			}
+		</script>
+
+	</body>
+</html>
